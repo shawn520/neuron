@@ -71,12 +71,14 @@ void readData(){
 	fclose(fp2);
 }
 */
-void randomInitData(){
-    int i,j;
-    for(i=0;i<Data;i++){
-        for(j=0;j<In;j++){
 
-        }
+//随机初始化训练集
+void randomInitData(){
+    int i;
+    for(i=0;i<Data;i++){
+        d_in[i][0] = rand() /(double)(RAND_MAX/10);
+        d_in[i][1] = rand() /(double)(RAND_MAX/10);
+        d_out[i][0] = d_in[i][0] + d_in[i][1];
     }
 }
 
@@ -206,6 +208,7 @@ double result(double var1,double var2)
 	return sum*(Maxout[0]-Minout[0]+1)+Minout[0]-1;
 }
 
+/*
 void writeNeuron()
 {
 	FILE *fp1;
@@ -228,6 +231,7 @@ void writeNeuron()
 
 	fclose(fp1);
 }
+*/
 
 /*
     由BP神经网络的基本模型知道，反馈学习机制包括两大部分，
@@ -265,6 +269,6 @@ int  main(int argc, char const *argv[])
 	printf("%lf \n",result(6,8) );
 	printf("%lf \n",result(2.1,7) );
 	printf("%lf \n",result(4.3,8) );
-	writeNeuron();
+	//writeNeuron();
 	return 0;
 }
