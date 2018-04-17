@@ -1,9 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include <math.h>
 #include <stdlib.h>
 
-#define Data  820       // Data 用来表示已经知道的数据样本的数量，也就是训练样本的数量。
+#define Data  1000       // Data 用来表示已经知道的数据样本的数量，也就是训练样本的数量。
 #define In 2            //In 表示对于每个样本有多少个输入变量
 #define Out 1           // Out 表示对于每个样本有多少个输出变量
 #define Neuron 45       //Neuron 表示神经元的数量
@@ -20,7 +21,7 @@ double OutputData[Out];
 double dv[Out][Neuron],dw[Neuron][In];
 double e;
 
-
+/*
 void writeTest(){
 	FILE *fp1,*fp2;
 	double r1,r2;
@@ -45,7 +46,8 @@ void writeTest(){
 	fclose(fp1);
 	fclose(fp2);
 }
-
+*/
+/*
 void readData(){
 
 	FILE *fp1,*fp2;
@@ -67,6 +69,15 @@ void readData(){
 		for(j=0; j<Out; j++)
 			fscanf(fp1,"%lf",&d_out[i][j]);
 	fclose(fp2);
+}
+*/
+void randomInitData(){
+    int i,j;
+    for(i=0;i<Data;i++){
+        for(j=0;j<In;j++){
+
+        }
+    }
 }
 
 //初始化BP神经网络
@@ -246,8 +257,9 @@ void  trainNetwork(){
 
 int  main(int argc, char const *argv[])
 {
-	writeTest();
-	readData();
+	//writeTest();
+	//readData();
+	randomInitData();
 	initBPNework();
 	trainNetwork();
 	printf("%lf \n",result(6,8) );
